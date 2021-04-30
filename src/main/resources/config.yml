@@ -1,0 +1,43 @@
+# BanknotesPlus made by _ItsWagPvP
+#
+# Which material do you want to use?
+Material: "PAPER"
+
+# If your server version is old and you have block ID it's like 100:10
+# The :10 is the data
+Data: 0
+
+# Name of the item
+Name: "&9Banknote"
+
+# Do you want to use limits?
+Enable-Maximum: false
+Maximum-Withdraw-Amount: 100000000
+Enable-Minimum: false
+Minimun-Withdraw-Amount: 0
+
+# When console give with /banknotes give <name> <money>
+# The lore is "Withdrawn by Console"
+Console-Name: "Console"
+#
+# Description of the item
+Lore:
+  - "&7Value: &a%money%"
+  - "&7Withdrawn by &a%player%"
+
+# Right-Click on air or to a block will deposit the banknote
+Allow-Right-Click-To-Deposit-Notes: true
+
+# Messages
+NoPerms: "&d&lBanknotesPlus &8» &cYou do not have the permission to do this!"
+NoConsole: "&d&lBanknotesPlus &8» &cYou can't do this from console!"
+AdminInvalidArgument: "&d&lBanknotesPlus &8» &eInvalid args!"
+PlayerNotFound: "&d&lBanknotesPlus &8» &ePlayer not found!"
+InvalidNumber: "&d&lBanknotesPlus &8» &eNumber invalid!"
+Received: "&d&lBanknotesPlus &8» &aYou've received a banknote of $%money% from %player%!"
+Given: "&d&lBanknotesPlus &8» &7You've send to %player% of $%money%!"
+Redeemed: "&d&lBanknotesPlus &8» &7You redeemed a banknote for $%money%!"
+NoMoney: "&d&lBanknotesPlus &8» &eYou don't have enough money!"
+NoSpace: "&d&lBanknotesPlus &8» &eYour inventory is full!"
+NoSpaceOthers: "&d&lBanknotesPlus &8» &eThe inventory of that player is full!"
+Created: "&d&lBanknotesPlus &8» &aYou've created a banknote of $%money%!"
