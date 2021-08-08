@@ -9,7 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class Withdraw implements CommandExecutor {
-    public static BanknotesPlus plugin;
+    
+    public static BanknotesPlus plugin = BanknotesPlus.getInstance();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -29,6 +30,11 @@ public class Withdraw implements CommandExecutor {
         try {
             amount = args[0].equalsIgnoreCase("all") ? (long) BanknotesPlus.getEconomy().getBalance(player) : Long.parseLong(args[0]);
         }catch (NumberFormatException e) {
+            sender.sendMessage(plugin.getMessage("InvalidNumber"));
+            return true;
+        }
+        
+        if (args[0].contains("-")) {
             sender.sendMessage(plugin.getMessage("InvalidNumber"));
             return true;
         }

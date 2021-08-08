@@ -10,11 +10,7 @@ Data: 0
 # Name of the item
 Name: "&9Banknote"
 
-# Do you want to use limits?
-Enable-Maximum: false
-Maximum-Withdraw-Amount: 100000000
-Enable-Minimum: false
-Minimun-Withdraw-Amount: 0
+Enchanted: true
 
 # When console give with /banknotes give <name> <money>
 # The lore is "Withdrawn by Console"

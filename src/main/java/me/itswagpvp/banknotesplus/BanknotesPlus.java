@@ -39,16 +39,17 @@ public final class BanknotesPlus extends JavaPlugin implements Listener {
         }
 
         getCommand("banknotesplus").setExecutor(new AdminCommand());
+        getCommand("banknotesplus").setTabCompleter(new TabCompleterUtil());
+
         getCommand("withdraw").setExecutor(new Withdraw());
+        getCommand("withdraw").setTabCompleter(new TabCompleterUtil());
+
+        getCommand("deposit").setExecutor(new Withdraw());
+        getCommand("deposit").setTabCompleter(new TabCompleterUtil());
 
         Bukkit.getPluginManager().registerEvents(new RightClickClaimNote(), instance);
 
         Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §aPlugin enabled in " + (System.currentTimeMillis() - before) + "ms");
-
-    }
-
-    @Override
-    public void onDisable() {
 
     }
 

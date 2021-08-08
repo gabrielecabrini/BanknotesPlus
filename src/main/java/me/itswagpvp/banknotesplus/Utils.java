@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Utils {
 
-    private static BanknotesPlus plugin;
+    private static BanknotesPlus plugin = BanknotesPlus.getInstance();
 
     // Create a banknotes with all custom entries
     public static ItemStack createBanknote(String creatorName, long amount) {
@@ -31,13 +31,16 @@ public class Utils {
                     .replaceAll("&", "§"));
         }
 
+        String name = plugin.getMessage("Name");
+
         meta.setLore(formatLore);
-        meta.setDisplayName(BanknotesPlus.getInstance().getConfig().getString("Name"));
+        meta.setDisplayName(name);
         item.setItemMeta(meta);
 
         // Writes the nbt tag
         NBTItem nbti = new NBTItem(item);
         nbti.setLong("banknote", amount);
+        nbti.applyNBT(item);
 
         return nbti.getItem();
     }

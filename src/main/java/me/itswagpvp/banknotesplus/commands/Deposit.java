@@ -9,7 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class Deposit implements CommandExecutor {
-    private static BanknotesPlus plugin;
+
+    private static BanknotesPlus plugin = BanknotesPlus.getInstance();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -31,7 +32,7 @@ public class Deposit implements CommandExecutor {
             return true;
         }
 
-        long amount = (long) Utils.getBanknoteAmount(item);
+        long amount = Utils.getBanknoteAmount(item);
 
         // Negative banknotes are not allowed
         if (Double.compare(amount, 0) < 0) {

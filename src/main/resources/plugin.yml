@@ -1,11 +1,12 @@
 name: BanknotesPlus
 version: ${project.version}
 main: me.itswagpvp.banknotesplus.BanknotesPlus
-api-version: 1.16
+api-version: 1.13
 authors: [ _ItsWagPvP ]
-website: boostdevteam.eu
 commands:
   banknotesplus:
+    aliases: 
+      - bnp
     usage: /<command>
   withdraw:
     usage: /<command>

@@ -13,14 +13,13 @@ import org.bukkit.inventory.ItemStack;
 
 public class AdminCommand implements CommandExecutor {
 
-    public static BanknotesPlus plugin;
+    public static BanknotesPlus plugin = BanknotesPlus.getInstance();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("banknotesplus")) {
             if (args.length == 0) {
                 sender.sendMessage("§d§lBanknotesPlus §7v" + BanknotesPlus.getInstance().getDescription().getVersion() + " made by §d_ItsWagPvP");
-                sender.sendMessage("§7For help do /banknotesplus help");
                 return true;
             }
 
@@ -41,7 +40,7 @@ public class AdminCommand implements CommandExecutor {
                 sender.sendMessage("§d§lBanknotesPlus §8- §7Check");
                 sender.sendMessage("§7");
                 sender.sendMessage("§dIs Banknote? §7" + nbti.hasKey("banknote"));
-                sender.sendMessage("§dAmount: §7" + nbti.getLong("banknote"));
+                if (nbti.hasKey("banknote")) sender.sendMessage("§dAmount: §7" + nbti.getLong("banknote"));
 
                 return true;
 
