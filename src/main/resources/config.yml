@@ -10,6 +10,7 @@ Data: 0
 # Name of the item
 Name: "&9Banknote"
 
+# Shows the item enchanted
 Enchanted: true
 
 # When console give with /banknotes give <name> <money>
@@ -24,9 +25,14 @@ Lore:
 # Right-Click on air or to a block will deposit the banknote
 Allow-Right-Click-To-Deposit-Notes: true
 
+# Send messages of the updater
+Updater:
+  Console: true
+
 # Messages
 NoPerms: "&d&lBanknotesPlus &8» &cYou do not have the permission to do this!"
 NoConsole: "&d&lBanknotesPlus &8» &cYou can't do this from console!"
+Reload: "&d&lBanknotesPlus &8» &aThe plugin has been reloaded!"
 AdminInvalidArgument: "&d&lBanknotesPlus &8» &eInvalid args!"
 PlayerNotFound: "&d&lBanknotesPlus &8» &ePlayer not found!"
 InvalidNumber: "&d&lBanknotesPlus &8» &eNumber invalid!"
@@ -37,3 +43,4 @@ NoMoney: "&d&lBanknotesPlus &8» &eYou don't have enough money!"
 NoSpace: "&d&lBanknotesPlus &8» &eYour inventory is full!"
 NoSpaceOthers: "&d&lBanknotesPlus &8» &eThe inventory of that player is full!"
 Created: "&d&lBanknotesPlus &8» &aYou've created a banknote of $%money%!"
+Air: "&d&lBanknotesPlus &8» &cYou can't check air!"

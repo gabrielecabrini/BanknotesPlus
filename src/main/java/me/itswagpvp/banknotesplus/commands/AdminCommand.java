@@ -4,6 +4,7 @@ import de.tr7zw.nbtapi.NBTItem;
 import me.itswagpvp.banknotesplus.BanknotesPlus;
 import me.itswagpvp.banknotesplus.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,11 +31,17 @@ public class AdminCommand implements CommandExecutor {
                 }
 
                 if (!sender.hasPermission("banknotesplus.check")) {
+                    sender.sendMessage(plugin.getMessage("NoPerms"));
                     return true;
                 }
 
                 Player player = (Player) sender;
                 ItemStack item = player.getInventory().getItemInMainHand();
+
+                if (item == null || item.getType() == Material.AIR) {
+                    sender.sendMessage(plugin.getMessage("Air"));
+                    return true;
+                }
 
                 NBTItem nbti = new NBTItem(item);
                 sender.sendMessage("§d§lBanknotesPlus §8- §7Check");
@@ -42,6 +49,20 @@ public class AdminCommand implements CommandExecutor {
                 sender.sendMessage("§dIs Banknote? §7" + nbti.hasKey("banknote"));
                 if (nbti.hasKey("banknote")) sender.sendMessage("§dAmount: §7" + nbti.getLong("banknote"));
 
+                return true;
+
+            } if (args[0].equalsIgnoreCase("reload")) {
+
+                if (!sender.hasPermission("banknotesplus.reload")) {
+                    sender.sendMessage(plugin.getMessage("NoPerms"));
+                    return true;
+                }
+                
+                plugin.saveDefaultConfig();
+                plugin.reloadConfig();
+                
+                sender.sendMessage(plugin.getMessage("Reload"));
+                    
                 return true;
 
             } else if (args[0].equalsIgnoreCase("give") && args.length >= 3) {

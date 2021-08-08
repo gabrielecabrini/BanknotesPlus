@@ -1,4 +1,4 @@
-package me.itswagpvp.banknotesplus;
+package me.itswagpvp.banknotesplus.misc;
 
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
@@ -30,17 +30,21 @@ public class TabCompleterUtil implements TabCompleter {
             int i = (args.length);
             switch (i) {
                 case 1: {
-                    return Arrays.asList("give", "check");
+                    return Arrays.asList("give", "check", "reload");
                 }
                 case 2: {
                     if (args[0].equalsIgnoreCase("give")) {
-                        return Arrays.asList("10", "100", "1000");
-                    } else {
                         return playerNames;
+                    } else {
+                        return listDefault;
                     }
                 }
                 case 3: {
-                    return Arrays.asList("10", "100", "1000");
+                    if (args[0].equalsIgnoreCase("give")) {
+                        return Arrays.asList("10", "100", "1000");
+                    } else {
+                        return listDefault;
+                    }
                 }
                 default:
                     return listDefault;

@@ -2,6 +2,7 @@ package me.itswagpvp.banknotesplus.commands;
 
 import me.itswagpvp.banknotesplus.BanknotesPlus;
 import me.itswagpvp.banknotesplus.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -46,11 +47,15 @@ public class Deposit implements CommandExecutor {
                 .replace("%money%", "" + amount));
 
         // Remove the item
-        if (item.getAmount() <= 1) {
-            player.getInventory().removeItem(item);
-        } else {
-            item.setAmount(item.getAmount() - 1);
-        }
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+
+            if (item.getAmount() == 1) {
+                player.getInventory().removeItem(item);
+            } else {
+                item.setAmount(item.getAmount() - 1);
+            }
+            return;
+        });
 
         return true;
     }

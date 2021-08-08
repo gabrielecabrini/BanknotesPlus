@@ -3,6 +3,9 @@ package me.itswagpvp.banknotesplus;
 import me.itswagpvp.banknotesplus.commands.AdminCommand;
 import me.itswagpvp.banknotesplus.commands.Withdraw;
 import me.itswagpvp.banknotesplus.events.RightClickClaimNote;
+import me.itswagpvp.banknotesplus.misc.Metrics;
+import me.itswagpvp.banknotesplus.misc.TabCompleterUtil;
+import me.itswagpvp.banknotesplus.misc.updater.UpdateMessage;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,6 +20,9 @@ public final class BanknotesPlus extends JavaPlugin implements Listener {
     protected static BanknotesPlus instance;
 
     private static Economy econ;
+
+    public static String[] split = Bukkit.getBukkitVersion().split("-")[0].split("\\.");
+    public static int ver = Integer.parseInt(split[1]);
 
     // Plugin startup logic
     @Override
@@ -38,6 +44,28 @@ public final class BanknotesPlus extends JavaPlugin implements Listener {
             Bukkit.getPluginManager().disablePlugin(instance);
         }
 
+        loadCommands();
+
+        loadEvents();
+
+        loadMetrics();
+
+        if (ver < 12) {
+            Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §cThe updater won't work under 1.12!");
+        }
+
+        if (ver >= 12) {
+            new UpdateMessage().updater(95120);
+        }
+
+        Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §aPlugin enabled in " + (System.currentTimeMillis() - before) + "ms");
+
+    }
+
+    private void loadCommands() {
+
+        Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §eLoading commands!");
+
         getCommand("banknotesplus").setExecutor(new AdminCommand());
         getCommand("banknotesplus").setTabCompleter(new TabCompleterUtil());
 
@@ -46,11 +74,21 @@ public final class BanknotesPlus extends JavaPlugin implements Listener {
 
         getCommand("deposit").setExecutor(new Withdraw());
         getCommand("deposit").setTabCompleter(new TabCompleterUtil());
+    }
+
+    private void loadEvents() {
+
+        Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §eLoading events!");
 
         Bukkit.getPluginManager().registerEvents(new RightClickClaimNote(), instance);
+    }
 
-        Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §aPlugin enabled in " + (System.currentTimeMillis() - before) + "ms");
+    private void loadMetrics() {
 
+        Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §eLoading metrics!");
+
+        int pluginId = 12363;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     private boolean setupEconomy() {

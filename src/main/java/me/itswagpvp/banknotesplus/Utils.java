@@ -2,6 +2,8 @@ package me.itswagpvp.banknotesplus;
 
 import de.tr7zw.nbtapi.NBTItem;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -35,6 +37,12 @@ public class Utils {
 
         meta.setLore(formatLore);
         meta.setDisplayName(name);
+
+        if (plugin.getInstance().getConfig().getBoolean("Enchanted")) {
+            meta.addEnchant(Enchantment.DURABILITY, 1, false);
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+
         item.setItemMeta(meta);
 
         // Writes the nbt tag
@@ -47,6 +55,10 @@ public class Utils {
 
     // Return if an item is a banknote
     public static boolean isBanknote(ItemStack item) {
+
+        if (item == null || item.getType().equals(Material.AIR)) {
+            return false;
+        }
 
         NBTItem nbti = new NBTItem(item);
         return nbti.hasKey("banknote");

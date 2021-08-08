@@ -3,6 +3,9 @@ version: ${project.version}
 main: me.itswagpvp.banknotesplus.BanknotesPlus
 api-version: 1.13
 authors: [ _ItsWagPvP ]
+softdepend:
+  - NBTAPI
+  - EconomyPlus
 commands:
   banknotesplus:
     aliases: 
