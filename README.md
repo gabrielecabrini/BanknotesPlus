@@ -1,1 +1,1 @@
-# BanknotesPlus
+# BanknotesPlus V1.0
