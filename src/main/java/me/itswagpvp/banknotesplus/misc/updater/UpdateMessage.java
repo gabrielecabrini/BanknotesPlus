@@ -22,15 +22,15 @@ public class UpdateMessage {
             }
 
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                Bukkit.getConsoleSender().sendMessage("§8+------------------------------------+");
-                Bukkit.getConsoleSender().sendMessage("            §dBanknotes§5Plus");
-                Bukkit.getConsoleSender().sendMessage("              §eUpdater");
-                Bukkit.getConsoleSender().sendMessage("§8");
-                Bukkit.getConsoleSender().sendMessage("§f-> New version available! §av" + version);
-                Bukkit.getConsoleSender().sendMessage("§f-> You have §cv" + plugin.getDescription().getVersion());
-                Bukkit.getConsoleSender().sendMessage("§f-> §eDownload it at https://www.spigotmc.org/resources/" + resourceId);
-                Bukkit.getConsoleSender().sendMessage("§8");
-                Bukkit.getConsoleSender().sendMessage("§8+---------------[§a " + (System.currentTimeMillis() - before) + "ms §8]-------------+");
+                Bukkit.getConsoleSender().sendMessage("Â§8+------------------------------------+");
+                Bukkit.getConsoleSender().sendMessage("            Â§dBanknotesÂ§5Plus");
+                Bukkit.getConsoleSender().sendMessage("              Â§eUpdater");
+                Bukkit.getConsoleSender().sendMessage("Â§8");
+                Bukkit.getConsoleSender().sendMessage("Â§f-> New version available! Â§av" + version);
+                Bukkit.getConsoleSender().sendMessage("Â§f-> You have Â§cv" + plugin.getDescription().getVersion());
+                Bukkit.getConsoleSender().sendMessage("Â§f-> Â§eDownload it at https://www.spigotmc.org/resources/" + resourceId);
+                Bukkit.getConsoleSender().sendMessage("Â§8");
+                Bukkit.getConsoleSender().sendMessage("Â§8+---------------[Â§a " + (System.currentTimeMillis() - before) + "ms Â§8]-------------+");
             }, 40);
         });
     }

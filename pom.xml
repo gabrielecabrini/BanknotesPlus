@@ -6,7 +6,7 @@
 
     <groupId>me.ItsWagPvP</groupId>
     <artifactId>BanknotesPlus</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>BanknotesPlus</name>
@@ -90,6 +90,11 @@
             <groupId>de.tr7zw</groupId>
             <artifactId>item-nbt-api-plugin</artifactId>
             <version>2.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations-java5</artifactId>
+            <version>19.0.0</version>
         </dependency>
     </dependencies>
 </project>

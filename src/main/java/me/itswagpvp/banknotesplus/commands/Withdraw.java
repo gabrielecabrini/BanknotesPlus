@@ -7,13 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class Withdraw implements CommandExecutor {
-    
+
     public static BanknotesPlus plugin = BanknotesPlus.getInstance();
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(plugin.getMessage("NoConsole"));
             return true;
@@ -27,24 +28,35 @@ public class Withdraw implements CommandExecutor {
         Player player = (Player) sender;
         long amount;
 
-        try {
-            amount = args[0].equalsIgnoreCase("all") ? (long) BanknotesPlus.getEconomy().getBalance(player) : Long.parseLong(args[0]);
-        }catch (NumberFormatException e) {
+
+        if (args.length <= 0) {
             sender.sendMessage(plugin.getMessage("InvalidNumber"));
             return true;
         }
-        
+
+        try {
+            amount = args[0].equalsIgnoreCase("all") ? (long) BanknotesPlus.getEconomy().getBalance(player) : Long.parseLong(args[0]);
+        } catch (NumberFormatException e) {
+            sender.sendMessage(plugin.getMessage("InvalidNumber"));
+            return true;
+        }
+
         if (args[0].contains("-")) {
             sender.sendMessage(plugin.getMessage("InvalidNumber"));
             return true;
         }
 
-        if (Double.isInfinite(amount) || Double.isNaN(amount) || amount <= 0) {
+        if (Double.isInfinite(amount) || amount <= 0) {
             sender.sendMessage(plugin.getMessage("InvalidNumber"));
             return true;
         }
 
         if (BanknotesPlus.getEconomy().getBalance(player) < 0) {
+            sender.sendMessage(plugin.getMessage("NoMoney"));
+            return true;
+        }
+
+        if (amount > BanknotesPlus.getEconomy().getBalance(player)) {
             sender.sendMessage(plugin.getMessage("NoMoney"));
             return true;
         }

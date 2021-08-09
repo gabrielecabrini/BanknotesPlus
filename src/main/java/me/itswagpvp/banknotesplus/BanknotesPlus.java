@@ -1,6 +1,7 @@
 package me.itswagpvp.banknotesplus;
 
 import me.itswagpvp.banknotesplus.commands.AdminCommand;
+import me.itswagpvp.banknotesplus.commands.Deposit;
 import me.itswagpvp.banknotesplus.commands.Withdraw;
 import me.itswagpvp.banknotesplus.events.RightClickClaimNote;
 import me.itswagpvp.banknotesplus.misc.Metrics;
@@ -72,7 +73,7 @@ public final class BanknotesPlus extends JavaPlugin implements Listener {
         getCommand("withdraw").setExecutor(new Withdraw());
         getCommand("withdraw").setTabCompleter(new TabCompleterUtil());
 
-        getCommand("deposit").setExecutor(new Withdraw());
+        getCommand("deposit").setExecutor(new Deposit());
         getCommand("deposit").setTabCompleter(new TabCompleterUtil());
     }
 

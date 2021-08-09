@@ -28,7 +28,7 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] §cCannot look for updates: " + exception.getMessage());
+                Bukkit.getConsoleSender().sendMessage("[BanknotesPlus] Â§cCannot look for updates: " + exception.getMessage());
             }
         });
     }
