@@ -28,17 +28,20 @@ public class Utils {
         List<String> formatLore = new ArrayList<>();
         for (String lore : BanknotesPlus.getInstance().getConfig().getStringList("Lore")) {
             formatLore.add(lore
-                    .replace("%money%", "$" + amount)
+                    .replace("%money%", BanknotesPlus.getEconomy().format(amount))
                     .replace("%player%", creatorName)
                     .replaceAll("&", "§"));
         }
 
-        String name = plugin.getMessage("Name");
+        String name = plugin.getMessage("Name")
+                .replace("%money%", BanknotesPlus.getEconomy().format(amount))
+                .replace("%player%", creatorName)
+                .replaceAll("&", "§");
 
         meta.setLore(formatLore);
         meta.setDisplayName(name);
 
-        if (plugin.getInstance().getConfig().getBoolean("Enchanted")) {
+        if (plugin.getConfig().getBoolean("Enchanted")) {
             meta.addEnchant(Enchantment.DURABILITY, 1, false);
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
