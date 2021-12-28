@@ -21,7 +21,7 @@ public class Utils {
             creatorName = plugin.getConfig().getString("Console-Name");
         }
 
-        ItemStack item = new ItemStack(Material.getMaterial(plugin.getConfig().getString("Material", "PAPER"), false), 1);
+        ItemStack item = new ItemStack(Material.getMaterial(plugin.getConfig().getString("Material", "PAPER")), 1);
 
         ItemMeta meta = item.getItemMeta();
 
