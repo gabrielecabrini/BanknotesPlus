@@ -12,6 +12,6 @@ commands:
       - bnp
     usage: /<command>
   withdraw:
-    usage: /<command>
+    usage: /<command> amount
   deposit:
     usage: /<command>

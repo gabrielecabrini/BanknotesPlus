@@ -50,6 +50,12 @@ public class Utils {
 
         // Writes the nbt tag
         NBTItem nbti = new NBTItem(item);
+        if (plugin.getConfig().contains("CustomModelData")) {
+            int modeldata = plugin.getConfig().getInt("CustomModelData");
+            if (modeldata > 0) {
+                nbti.setInteger("CustomModelData", modeldata);
+            }
+        }
         nbti.setLong("banknote", amount);
         nbti.applyNBT(item);
 
