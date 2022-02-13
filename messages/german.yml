@@ -1,0 +1,46 @@
+# BanknotesPlus made by _ItsWagPvP
+#
+# Which material do you want to use?
+Material: "PAPER"
+
+# If your server version is old and you have block ID it's like 100:10
+# The :10 is the data
+Data: 0
+
+# Name of the item
+Name: "&9Banknote"
+
+# Shows the item enchanted
+Enchanted: true
+
+# When console give with /banknotes give <name> <money>
+# The lore is "Withdrawn by Console"
+Console-Name: "Konsole"
+#
+# Description of the item
+Lore:
+  - "&7Wert: &a%money%"
+  - "&7Abgehoben von &a%player%"
+
+# Right-Click on air or to a block will deposit the banknote
+Allow-Right-Click-To-Deposit-Notes: true
+
+# Send messages of the updater
+Updater:
+  Console: true
+
+# Messages
+NoPerms: "&d&lBanknotesPlus &8» &cDu hast keine Berechtigungen das zu tun."
+NoConsole: "&d&lBanknotesPlus &8» &cDu kannst das nicht von der Konsole aus tun."
+Reload: "&d&lBanknotesPlus &8» &aDas Plugin wurde neu geladen!"
+AdminInvalidArgument: "&d&lBanknotesPlus &8» &eFalsche Argumente!"
+PlayerNotFound: "&d&lBanknotesPlus &8» &eSpieler nicht gefunden!"
+InvalidNumber: "&d&lBanknotesPlus &8» &eNummer falsch!"
+Received: "&d&lBanknotesPlus &8» &aDu hast eine Banknote im Wert von %money% € von %player% bekommen!"
+Given: "&d&lBanknotesPlus &8» &7Du hast eine Banknote im Wert von %money% € zu %player% gesendet!"
+Redeemed: "&d&lBanknotesPlus &8» &7Du hast eine Banknote im Wert von $%money% eingelöst!"
+NoMoney: "&d&lBanknotesPlus &8» &eDu hast nicht genug Geld!"
+NoSpace: "&d&lBanknotesPlus &8» &eDein Inventar ist voll!"
+NoSpaceOthers: "&d&lBanknotesPlus &8» &eDas Inventar des Spielers ist voll!"
+Created: "&d&lBanknotesPlus &8» &aDu hast eine Banknote im Wert von %money% € erstellt!"
+Air: "&d&lBanknotesPlus &8» &cDu kannst der Luft nichts geben!"
