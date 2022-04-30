@@ -3,9 +3,12 @@
 # Which material do you want to use?
 Material: "PAPER"
 
-# If your server version is old and you have block ID it's like 100:10
-# The :10 is the data
-Data: 0
+# Available as custom_model_data for overriding texture with resource packs
+# Minecraft 1.14 and up
+# https://www.planetminecraft.com/forums/communities/texturing/new-1-14-custom-item-models-tuto-578834/
+# https://minecraft.fandom.com/wiki/Player.dat_format#General_Tags
+# Set to a positive number to activate
+CustomModelData: 0
 
 # Name of the item
 Name: "&9Banknote"
@@ -16,7 +19,7 @@ Enchanted: true
 # When console give with /banknotes give <name> <money>
 # The lore is "Withdrawn by Console"
 Console-Name: "Console"
-#
+
 # Description of the item
 Lore:
   - "&7Value: &a%money%"
